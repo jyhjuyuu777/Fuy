@@ -4381,3 +4381,46 @@ task.spawn(function()
         end
     end
 end)
+--// AUTO REBIRTH
+local AutoRebirthEnabled = false
+local AutoRebirthThread = nil
+
+GamepassBox:AddToggle("AutoRebirth", {
+    Text = "auto rebirth",
+    Default = false,
+
+    Callback = function(Value)
+        AutoRebirthEnabled = Value
+
+        if Value then
+            if AutoRebirthThread then
+                return
+            end
+
+            AutoRebirthThread = task.spawn(function()
+                local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+                local RequestRebirth =
+                    ReplicatedStorage
+                    :WaitForChild("Packages")
+                    :WaitForChild("_Index")
+                    :WaitForChild("sleitnick_knit@1.4.7")
+                    :WaitForChild("knit")
+                    :WaitForChild("Services")
+                    :WaitForChild("PlayerLevelService")
+                    :WaitForChild("RF")
+                    :WaitForChild("RequestRebirth")
+
+                while AutoRebirthEnabled do
+                    pcall(function()
+                        RequestRebirth:InvokeServer(true)
+                    end)
+
+                    task.wait(1.5)
+                end
+
+                AutoRebirthThread = nil
+            end)
+        end
+    end
+})
