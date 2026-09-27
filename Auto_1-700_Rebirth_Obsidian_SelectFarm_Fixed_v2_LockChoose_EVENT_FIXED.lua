@@ -1326,6 +1326,8 @@ task.spawn(function()
     end
 end)
 local RightBox = Tab:AddRightGroupbox("Select")
+local AutoSpecialSkillBox = Tab2:AddRightGroupbox("Auto Special Skill")
+
 --// RIGHT BOX - SELECT FARM + AUTO FARM
 --// Tween thuần tới Mob + Dropdown tự update liên tục
 --// Không ép CFrame sau tween, không lock ngẫu nhiên sang Mob khác
