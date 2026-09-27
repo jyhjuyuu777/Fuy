@@ -1326,7 +1326,6 @@ task.spawn(function()
     end
 end)
 local RightBox = Tab:AddRightGroupbox("Select")
-local AutoSpecialSkillBox = Tab2:AddRightGroupbox("Auto Special Skill")
 
 --// RIGHT BOX - SELECT FARM + AUTO FARM
 --// Tween thuần tới Mob + Dropdown tự update liên tục
@@ -4383,7 +4382,9 @@ task.spawn(function()
         end
     end
 end)
---// AUTO REBIRTH
+local Tab3 = Window:AddTab("Basic farm", "home")
+local AutoSpecialSkillBox = Tab3:AddRightGroupbox("Auto Special Skill")
+
 local AutoRebirthEnabled = false
 local AutoRebirthThread = nil
 
