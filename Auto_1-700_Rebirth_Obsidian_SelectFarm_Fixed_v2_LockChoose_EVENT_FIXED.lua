@@ -4425,7 +4425,7 @@ GamepassBox:AddToggle("AutoRebirth", {
     end
 })
 --// AUTO SPECIAL SKILL
-local AutoSpecialSkillBox = Tab2:AddLeftGroupbox("Auto Special Skill")
+local AutoSpecialSkillBox = Tab2:AddRightGroupbox("Auto Special Skill")
 
 local AutoSkillPsiEnabled = false
 local AutoSkillPsiThread = nil
